@@ -1,0 +1,67 @@
+.home {
+  display: flex;
+}
+
+.sidebar {
+  width: 25vw;
+  border-right: 2px solid #ebecf3;
+  min-height: 100vh;
+}
+
+.sidebar-title {
+  font-size: 3.2rem;
+  margin-top: 3rem;
+  letter-spacing: 1px;
+  margin-left: 5rem;
+}
+
+.sidebar-title-span {
+  color: var(--color-primary);
+}
+
+.search {
+  padding: 10.5rem 6rem 0 6rem;
+  width: 100%;
+}
+
+.search-result {
+  margin-top: 6rem;
+  display: flex;
+  align-items: center;
+}
+
+.search-res {
+  margin-right: 1rem;
+  font-size: 2.2rem;
+  color: "#14142B";
+}
+
+.search-title {
+  font-size: 2.2rem;
+}
+
+.movies-result {
+  display: flex;
+  /* justify-content: space-between; */
+  margin-top: 4rem;
+  flex-wrap: wrap;
+}
+
+@media only screen and (max-width: 809px) {
+  .movies-result {
+    justify-content: space-between;
+  }
+}
+
+@media only screen and (max-width: 497px) {
+  .movies-result {
+    justify-content: center;
+  }
+}
+
+.search-q {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40vh;
+}

@@ -1,0 +1,40 @@
+body {
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  line-height: 1.7;
+  position: relative;
+  scroll-behavior: smooth;
+}
+
+/* CSS variable colors */
+:root {
+  --color-primary: #5f2eea;
+  --color-dark-grey: #a0a3bd;
+  --color-light-grey: #d9dbe9;
+  --color-text: #14142b;
+}
+
+/* css global resets */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* enable use of relative unit */
+html {
+  font-size: 62.5%;
+}
+
+@media only screen and (max-width: 1141px) {
+  html {
+    font-size: 55%;
+  }
+}
+
+.overflow-hidden {
+  overflow: hidden;
+  max-height: 100vh;
+}

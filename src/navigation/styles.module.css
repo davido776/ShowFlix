@@ -1,0 +1,38 @@
+.home {
+  display: flex;
+}
+
+.sidebar {
+  width: 25vw;
+  border-right: 2px solid #ebecf3;
+  min-height: 100vh;
+}
+
+@media only screen and (max-width: 1141px) {
+  .sidebar {
+    /* width: 0 */
+    display: none;
+  }
+}
+
+.sidebar-title {
+  font-size: 3.2rem;
+  margin-top: 3rem;
+  letter-spacing: 1px;
+  margin-left: 5rem;
+}
+
+.sidebar-title-span {
+  color: var(--color-primary);
+}
+
+.search {
+  padding: 10.5rem 6rem 5rem 6rem;
+  width: 100%;
+}
+
+@media only screen and (max-width: 815px) {
+  .search {
+    padding: 3rem 3rem 3rem 3rem;
+  }
+}
