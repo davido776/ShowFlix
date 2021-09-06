@@ -13,6 +13,9 @@ import { asyncGetMovie, removeMovie } from "../../redux/actions/movie.action";
 import Loader from "react-loader-spinner";
 import { motion } from "framer-motion";
 import { pageTransition, transit } from "../../animation/animate";
+import { asyncSearchMovie } from "../../redux/actions/search.actions";
+import MovieCard from "../../components/movieCard/MovieCard";
+import { useState } from "react";
 
 function timeConvert(n) {
   var num = n;
@@ -25,12 +28,12 @@ function timeConvert(n) {
 
 const MoviePage = () => {
   const { id } = useParams();
+  const [similarMovies, setSimilarMovies] = useState([]);
   const dispatch = useDispatch();
+  const movies = useSelector((state) => state.search.movies);
   const movie = useSelector((state) => state.movie.movie);
   const isGettingMovie = useSelector((state) => state.movie.isGettingMovie);
   const movieErrMsg = useSelector((state) => state.movie.getMovieError);
-
-  console.log(movie);
 
   useEffect(() => {
     dispatch(asyncGetMovie(`${id}`));
@@ -39,6 +42,28 @@ const MoviePage = () => {
       dispatch(removeMovie());
     };
   }, [dispatch, id]);
+  
+  useEffect(()=>{
+
+     if(movie){
+      const similars = movies.Search.filter(m=>m.Title.includes(movie.Title)  && m.imdbID != movie.imdbID);
+      setSimilarMovies(similars);
+     }
+  },[movie]);
+
+  let similarMoviesComponent;
+
+  
+  
+    if(similarMovies.length != 0){
+      similarMoviesComponent = similarMovies?.map((movie) => (
+        <MovieCard key={movie.imdbID} movie={movie} />
+      ))
+    }else{
+      similarMoviesComponent = <h1>No similar movies</h1>
+    }
+  
+
   return (
     <motion.div
       initial="out"
@@ -98,11 +123,10 @@ const MoviePage = () => {
             </div>
           </div>
           <div className={classes["similar-movie"]}>
-            {/* <h className={classes["movie-title"]}>Similar Movies</h> */}
+            <h className={classes["movie-title"]}>Similar Movies</h>
             <div className={classes["similar-movies-container"]}>
-              {/* <MovieCard />
-          <MovieCard />
-          <MovieCard /> */}
+              
+                {similarMoviesComponent}
             </div>
           </div>
         </motion.div>

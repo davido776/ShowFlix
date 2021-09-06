@@ -9,15 +9,10 @@ import { pageTransition, transit } from "../../animation/animate";
 
 const HomePage = () => {
   const movies = useSelector((state) => state.search.movies);
+  const searchString = useSelector((state) => state.search.searchstring)
   const isSearching = useSelector((state) => state.search.isSearching);
   const errMsg = useSelector((state) => state.search.searchErrMsg);
-
-  useEffect(() => {
-    if (movies) {
-      console.log("MOVIES", movies.Search);
-    }
-  }, [movies]);
-
+ 
   return (
     <motion.div
       initial="out"
@@ -46,6 +41,9 @@ const HomePage = () => {
         <div className={classes["search-q"]}>
           <Loader type="Oval" color="#5f2eea" height={40} width={40} />
         </div>
+      )}
+      {searchString &&(
+         <p style={{fontSize:'15px'}}>Results for:<span  style={{fontWeight:'bold',marginLeft:'5px'}}>{searchString}</span></p>
       )}
       <div className={classes["movies-result"]}>
         {movies &&

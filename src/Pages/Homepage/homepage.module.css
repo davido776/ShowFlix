@@ -53,9 +53,10 @@
   }
 }
 
-@media only screen and (max-width: 497px) {
+@media only screen and (max-width: 450px) {
   .movies-result {
     justify-content: center;
+    padding:4px;
   }
 }
 

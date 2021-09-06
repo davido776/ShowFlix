@@ -10,9 +10,7 @@ const Search = () => {
 
   const handleSearch = (e) => {
     if (!searchStr) return;
-
     e.preventDefault();
-    console.log(searchStr);
     setSearchStr("");
     dispatch(asyncSearchMovie(searchStr));
   };
@@ -33,11 +31,21 @@ const Search = () => {
             name="search"
             placeholder="search"
             onChange={(e) => setSearchStr(e.target.value)}
+            tabindex="0"
           />
         </div>
-        <button onClick={handleSearch} className={classes["search-btn"]}>
-          search
-        </button>
+        
+          <button onClick={handleSearch} className={classes["search-btn"]}>
+            search
+          </button>
+          <button onClick={handleSearch} className={classes["search-btn2"]}>
+            <img
+              src={searchIcon}
+              alt="search"
+              className={classes["search-icon2"]}
+            />
+          </button>
+        
       </form>
     </div>
   );

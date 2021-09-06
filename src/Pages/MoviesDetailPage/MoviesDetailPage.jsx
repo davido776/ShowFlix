@@ -8,6 +8,7 @@ import Loader from "react-loader-spinner";
 import { motion } from "framer-motion";
 import { pageTransition, transit } from "../../animation/animate";
 
+
 const MoviesDetailPage = () => {
   const history = useHistory();
   const { id } = useParams();
@@ -75,6 +76,8 @@ const MoviesDetailPage = () => {
           )}
         </div>
       </div>
+
+      
     </div>
   );
 };

@@ -2,6 +2,7 @@ import {
   SEARCH_MOVIE_FAILURE,
   SEARCH_MOVIE_START,
   SEARCH_MOVIE_SUCCESS,
+  SEARCH_STRING
 } from "../constants/search.constant";
 import axios from "axios";
 
@@ -14,6 +15,13 @@ const searchMovieStart = () => {
 const searchMovieSuccess = (result) => {
   return {
     type: SEARCH_MOVIE_SUCCESS,
+    payload: result,
+  };
+};
+
+const searchString = (result) => {
+  return {
+    type: SEARCH_STRING,
     payload: result,
   };
 };
@@ -36,7 +44,7 @@ export const asyncSearchMovie = (searchStr) => {
       if (data.Error) {
         return dispatch(searchMovieFailure(data.Error));
       }
-
+      dispatch(searchString(searchStr));
       dispatch(searchMovieSuccess(data));
     } catch (err) {
       console.log(err);
