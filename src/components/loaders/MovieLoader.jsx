@@ -12,11 +12,7 @@ const MovieLoader = (props) => (
   >
     <rect x="12" y="58" rx="2" ry="2" width="211" height="211" />
     <rect x="240" y="57" rx="2" ry="2" width="211" height="211" />
-    {/* <rect x="467" y="56" rx="2" ry="2" width="211" height="211" />
-    <rect x="12" y="283" rx="2" ry="2" width="211" height="211" />
-    <rect x="240" y="281" rx="2" ry="2" width="211" height="211" />
-    <rect x="468" y="279" rx="2" ry="2" width="211" height="211" /> */}
-
+    
   </ContentLoader>
 );
 
